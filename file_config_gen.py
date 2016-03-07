@@ -34,6 +34,12 @@ def config_gen(a):
     subnet_mask = "255.255.255.252"
     ospf_igp_area = "area 0"
     index_of_sorted_list = 0
+    try:
+    	os.chdir("/tmp/gns3_topology")
+    except:
+	print "Directory gns3_topology does not exist.. I Will create "
+	os.mkdir("/tmp/gns3_topology")	
+	os.chdir("/tmp/gns3_topology")
     for i in range(1,a):
         fh = open(file_list[i],'w')
         fh.write("!\n")
@@ -76,6 +82,3 @@ end
 ''')
 
 config_gen(router_number)
-            
-        
-        
